@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+sqlalchemy>=2.0
+aiosqlite
+langchain-openai
+langchain
+langchain-mcp-adapters
+langgraph
+python-dotenv          # (optional) for local dev

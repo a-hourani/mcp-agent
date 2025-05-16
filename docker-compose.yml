@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mcp-server:
+    image: mcp-server
+    container_name: mcp-server
+    ports:
+      - "8000:8000"
+    networks:
+      - mcp_mynetwork  # Use the existing network
+
+  agent-api:
+    image: agent-api
+    container_name: agent-api
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    ports:
+      - "7000:7000"
+    depends_on:
+      - mcp-server
+    networks:
+      - mcp_mynetwork  # Use the existing network
+
+  agent-ui:
+    image: agent-ui
+    container_name: agent-ui
+    ports:
+      - "8501:8501"
+    depends_on:
+      - agent-api
+    networks:
+      - mcp_mynetwork  # Use the existing network
+
+networks:
+  mcp_mynetwork:
+    external: true  # This tells Docker Compose to use the already existing network
