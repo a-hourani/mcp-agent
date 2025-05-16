@@ -4,6 +4,8 @@
  - langchain agent 
  - MCP tool
 
+## Chatbot UI
+![Chatbot UI](media/chatbot_ui.jpg)
 
 ## How To Deploy
  - docker build -t mcp-server mcp_server 
